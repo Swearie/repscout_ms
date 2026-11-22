@@ -1,0 +1,8 @@
+{
+  "appId": "app.reposcout.store",
+  "appName": "RepoScout",
+  "webDir": "www",
+  "android": {
+    "adjustMarginsForEdgeToEdge": "auto"
+  }
+}
