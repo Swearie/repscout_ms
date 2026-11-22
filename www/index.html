@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it" data-t="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f3f7f9" id="tc">
+<title>RepoScout - Store di app open source</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f7f9;--cd:#fff;--tx:#0e1d27;--mu:#566a78;--ac:#0d9488;--on:#fff;--bd:#dfe7ec;--sh:0 1px 2px #0b1f2a12,0 6px 18px #0b1f2a0c;--ok:#15803d;--er:#b91c1c;--sk:#e6edf1;--hero:#0f3d3a}
+[data-t=dark]{--bg:#091014;--cd:#111b21;--tx:#e8f1f5;--mu:#90a6b4;--ac:#2dd4bf;--on:#042f2e;--bd:#22333e;--sh:none;--ok:#4ade80;--er:#fca5a5;--sk:#1a2a33;--hero:#0e2f2d}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,Roboto,sans-serif;padding-bottom:env(safe-area-inset-bottom)}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+h1,h2,h3,.ft,.logo{font-family:Syne,system-ui,sans-serif}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:calc(10px + env(safe-area-inset-top)) 0 0}
+.w{max-width:980px;margin:auto}.row{display:flex;align-items:center;gap:8px;padding:0 14px}
+.logo{flex:1;font-weight:800;font-size:21px}.logo b{color:var(--ac)}
+.ib{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--cd);border:1px solid var(--bd);font-size:18px}
+#sf{display:flex;gap:8px;padding:10px 14px 0}
+.sb{flex:1;position:relative}.sb span{position:absolute;left:14px;top:12px;color:var(--mu)}
+input,select{width:100%;height:44px;border-radius:14px;border:1px solid var(--bd);background:var(--cd);padding:0 14px;outline:0}
+.sb input{border-radius:22px;padding-left:44px}
+input:focus,select:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 28%,transparent)}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--ac)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:23px;background:var(--ac);color:var(--on);font-weight:800;text-decoration:none;white-space:nowrap}
+.btn.s{background:var(--cd);color:var(--tx);border:1px solid var(--bd)}
+#fw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}#fw.open{grid-template-rows:1fr}#fi{overflow:hidden}
+.fp{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:12px 14px;align-items:end}
+.fp label{display:grid;gap:5px;font-size:13px;font-weight:700;color:var(--mu)}.fp .sw{display:flex;align-items:center;gap:10px;height:44px;color:var(--tx)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 14px 12px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:8px 14px;border-radius:18px;border:1px solid var(--bd);background:var(--cd);font-weight:700;font-size:13.5px;white-space:nowrap}
+.chip.on{background:var(--ac);color:var(--on);border-color:var(--ac)}
+.hero{margin:14px;padding:22px 20px;border-radius:24px;background:var(--hero);color:#eafffb}
+.hero h2{font-weight:800;font-size:26px;line-height:1.12}.hero p{margin-top:8px;font-size:14px;opacity:.9;max-width:46ch}
+.dev{display:inline-block;margin-top:14px;padding:6px 13px;border-radius:14px;background:#ffffff26;font-weight:700;font-size:13px}
+.rh{display:flex;justify-content:space-between;align-items:center;padding:16px 14px 8px}.rh h2{font-size:18px;font-weight:700}.rh button{color:var(--ac);font-weight:800;font-size:14px;padding:6px 0}
+.sc{display:flex;gap:14px;overflow-x:auto;padding:2px 14px 8px;scrollbar-width:none}.sc::-webkit-scrollbar{display:none}
+.tile{flex:none;width:92px;cursor:pointer}.tile b{display:block;margin-top:7px;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ic{width:72px;height:72px;border-radius:18px;background:var(--sk);object-fit:cover;border:1px solid var(--bd);flex:none}.tile .ic{width:92px;height:92px;border-radius:23px}.ic.big{width:92px;height:92px;border-radius:23px}
+.mu{color:var(--mu);font-size:12.5px}
+.sk{border-radius:18px;background:linear-gradient(90deg,var(--sk),var(--cd),var(--sk));background-size:200% 100%;animation:sh 1.3s infinite}@keyframes sh{to{background-position:-200% 0}}
+#res{display:grid;gap:12px;padding:0 14px 8px}
+.app{display:flex;gap:14px;padding:14px;background:var(--cd);border:1px solid var(--bd);border-radius:20px;box-shadow:var(--sh);cursor:pointer}
+.bd{min-width:0;flex:1}.bd h3,.bd h1{font-weight:700;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bd h1{font-size:22px;white-space:normal}
+.ds{font-size:13.5px;color:var(--mu);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:3px 0 8px}
+.bg{display:flex;flex-wrap:wrap;gap:6px}
+.pb{--c:#64748b;display:inline-flex;gap:5px;align-items:center;padding:3px 10px;border-radius:12px;font-size:12.5px;font-weight:800;background:color-mix(in srgb,var(--c) 17%,transparent);color:color-mix(in srgb,var(--c) 60%,var(--tx))}
+.pb.me{box-shadow:0 0 0 2px var(--c)}.pb.est{background:none;border:1.5px dashed var(--c)}
+.st{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:9px;font-size:12.5px;color:var(--mu)}
+.oh{padding:16px 14px 10px}.oh h2{font-size:19px}.oh .mu{margin-top:2px;display:flex;gap:8px;align-items:center}
+.note{margin:12px 14px;padding:12px 14px;border-radius:14px;background:var(--cd);border:1px solid var(--bd);font-size:14px}
+.note.ok{border-color:var(--ok);color:var(--ok);font-weight:700}.note.no{border-color:var(--er);color:var(--er)}
+#sent{text-align:center;padding:22px}
+#sh{position:fixed;inset:0;z-index:50;background:var(--bg);overflow:auto;transform:translateY(100%);visibility:hidden;transition:transform .28s,visibility .28s}#sh.open{transform:none;visibility:visible}
+.tb{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:6px;padding:calc(8px + env(safe-area-inset-top)) 8px 8px;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.tb button{width:44px;height:44px;border-radius:50%;display:grid;place-items:center}.tb span{font-weight:700}
+.shi{max-width:760px;margin:auto;padding:6px 16px 48px}.shi .note{margin:12px 0}
+.hd{display:flex;gap:16px;align-items:center}
+.cta{display:flex;gap:10px;flex-wrap:wrap}.cta .btn:first-child{flex:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin:18px 0;background:var(--cd);border:1px solid var(--bd);border-radius:18px;overflow:hidden}
+.stats div{padding:12px 4px;text-align:center;border-right:1px solid var(--bd);min-width:0}.stats div:last-child{border:0}.stats b{display:block;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.stats span{font-size:12px;color:var(--mu)}
+.shi h2{font-size:18px;margin:24px 0 10px}.shi h2 small{font:600 13px system-ui;color:var(--mu);margin-left:8px}
+.gh{margin:14px 0 8px}
+.as{display:flex;align-items:center;gap:10px;padding:11px 12px;background:var(--cd);border:1px solid var(--bd);border-radius:14px;margin-bottom:8px}.as.me{border-color:var(--ac)}
+.as .nm{flex:1;min-width:0;font-size:13.5px;font-weight:600;word-break:break-all}.as a{flex:none;width:44px;height:44px;border-radius:50%;background:var(--ac);color:var(--on);display:grid;place-items:center}
+.rn{white-space:pre-wrap;font-size:14px;color:var(--mu);background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:14px;word-break:break-word}
+dialog{border:1px solid var(--bd);border-radius:22px;background:var(--cd);color:var(--tx);padding:20px;width:min(92vw,420px);margin:auto}dialog::backdrop{background:#0009}
+@media(min-width:760px){#res{grid-template-columns:1fr 1fr}.chips{justify-content:center}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="w">
+<div class="row"><div class="logo">Repo<b>Scout</b></div><button class="ib" id="cfg" aria-label="Impostazioni">⚙️</button><button class="ib" id="thm" aria-label="Cambia tema"></button></div>
+<form id="sf"><div class="sb"><span data-i="search"></span><input id="q" type="search" placeholder="Cerca app, tool, emulatori…" enterkeyhint="search" autocomplete="off"></div><button type="button" class="ib" id="tf" data-i="tune" aria-label="Filtri avanzati"></button><button class="btn" style="height:44px;padding:0 18px">Cerca</button></form>
+<div id="fw"><div id="fi"><div class="fp">
+<label>Creato dal<select id="fy"><option value="">Qualsiasi anno</option></select></label>
+<label>Stelle minime<input id="fs" type="number" min="0" inputmode="numeric" placeholder="es. 100"></label>
+<label>Fork minimi<input id="ff" type="number" min="0" inputmode="numeric" placeholder="es. 50"></label>
+<label class="sw"><input id="fg" type="checkbox">Good First Issues</label>
+<button type="button" class="chip" id="fc">Svuota filtri</button>
+</div></div></div>
+<nav class="chips" id="chips" aria-label="Piattaforma"></nav>
+</div></header>
+<main class="w">
+<section id="home"></section>
+<section id="out" hidden>
+<div class="oh"><h2 id="rt"></h2><div class="mu"><span id="rc"></span><span class="pb" id="fb" hidden>Filtri attivi</span></div></div>
+<div class="note no" id="er" hidden></div>
+<div id="res"></div>
+<div id="sent" class="mu" hidden>Carico altre app…</div>
+</section>
+</main>
+<div id="sh" aria-modal="true"></div>
+<dialog id="dlg"><h2 class="ft">Impostazioni</h2>
+<p class="mu" style="margin:8px 0 12px;font-size:13.5px">GitHub limita le ricerche senza accesso (circa 10 al minuto). Un token personale, senza alcun permesso, porta il limite a 30 al minuto e 5.000 richieste all'ora. Resta salvato solo su questo dispositivo.</p>
+<input id="tk" type="password" placeholder="github_pat_…" autocomplete="off">
+<div class="cta" style="margin-top:14px"><button class="btn s" id="dx">Annulla</button><button class="btn" id="svt">Salva</button></div></dialog>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const IC={search:'M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z',dl:'M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z',tune:'M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z',back:'M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z'};
+const svg=(n,w=22)=>`<svg viewBox="0 0 24 24" width="${w}" height="${w}" fill="currentColor"><path d="${IC[n]}"/></svg>`;
+const ST={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+/* Piattaforme: t = topic GitHub usato dal filtro */
+const PL={android:{n:'Android',e:'🤖',c:'#16a34a',t:'android'},ios:{n:'iPhone e iPad',e:'📱',c:'#475569',t:'ios'},windows:{n:'Windows',e:'🪟',c:'#0284c7',t:'windows'},macos:{n:'macOS',e:'🍎',c:'#6b7280',t:'macos'},linux:{n:'Linux',e:'🐧',c:'#d97706',t:'linux'},switch:{n:'Nintendo Switch',e:'🎮',c:'#e11d48',t:'nintendo-switch'},ps:{n:'PlayStation',e:'🕹️',c:'#2563eb',t:'playstation'},xbox:{n:'Xbox',e:'🎮',c:'#15803d',t:'xbox'},browser:{n:'Browser',e:'🧩',c:'#9333ea',t:'browser-extension'},web:{n:'Web',e:'🌐',c:'#0891b2',t:'webapp'},cli:{n:'Terminale',e:'⌨️',c:'#4b5563',t:'cli'},server:{n:'Server e Docker',e:'🐳',c:'#0ea5e9',t:'self-hosted'},lib:{n:'Libreria',e:'📦',c:'#64748b'},other:{n:'Piattaforma non indicata',e:'❔',c:'#64748b'}};
+const RX=[['android',/\b(android|apk|fdroid|f-droid|jetpack-compose)\b/],['ios',/\b(ios|iphone|ipados|ipa|swiftui|testflight|altstore|sideloadly)\b/],['windows',/\b(windows|win32|win10|win11|winui|wpf|winforms|uwp|powershell|msi|msix)\b/],['macos',/\b(macos|osx|appkit|macbook|mac)\b/],['linux',/\b(linux|gtk|gtk3|gtk4|gnome|kde|qt|appimage|flatpak|snap|wayland|x11|ubuntu|archlinux|debian)\b/],['switch',/\b(nintendo-switch|switch-homebrew|atmosphere|ryujinx|yuzu)\b/],['ps',/\b(ps2|ps3|ps4|ps5|psp|vita|psvita|playstation)\b/],['xbox',/\b(xbox|xbox360|xbox-one)\b/],['browser',/\b(chrome-extension|firefox-addon|browser-extension|webextension|userscript|tampermonkey|extension|addon)\b/],['web',/\b(webapp|web-app|pwa|website|web-ui|webui)\b/],['server',/\b(docker|self-hosted|selfhosted|homelab|kubernetes|docker-compose)\b/],['cli',/\b(cli|terminal|command-line|tui|bash|shell)\b/]];
+const CROSS=[[/\b(electron|tauri|qt|cross-platform|crossplatform|wails|avalonia)\b/,['windows','macos','linux']],[/\b(flutter|react-native|kotlin-multiplatform|maui|capacitor|cordova|ionic)\b/,['android','ios']]];
+const ROWS=[['android',3000],['windows',3000],['switch',300],['linux',4000],['browser',1500],['macos',3000],['ios',2000]];
+const ua=navigator.userAgent,UP=/android/i.test(ua)?'android':/iphone|ipad/i.test(ua)?'ios':/win/i.test(ua)?'windows':/mac/i.test(ua)?'macos':/linux|x11/i.test(ua)?'linux':'';
+function detect(r){const s=(r.t.join(' ')+' '+r.n+' '+(r.d||'')).toLowerCase(),o=new Set();RX.forEach(([k,x])=>x.test(s)&&o.add(k));CROSS.forEach(([x,a])=>x.test(s)&&a.forEach(k=>o.add(k)));if(!o.size)o.add(/\b(library|framework|sdk|api|lib|package|module)\b/.test(s)?'lib':'other');return[...o]}
+/* Classifica un file di release: piattaforma + architettura */
+function cls(n){n=n.toLowerCase();if(/\.(sha\d*|md5|sig|asc|txt|md|yml|yaml|json|blockmap|sbom|pem|minisig)$|checksum|sha256sums/.test(n))return null;let p='other';
+const w=x=>new RegExp('(^|[^a-z])('+x+')([^a-z]|$)').test(n);
+if(/\.(apk|aab|xapk|apks)$/.test(n))p='android';else if(/\.ipa$/.test(n))p='ios';else if(/\.(nsp|nro|xci)$/.test(n))p='switch';else if(/\.vpk$/.test(n))p='ps';else if(/\.(xpi|crx)$/.test(n))p='browser';
+else if(/\.(exe|msi|msix|appx|msixbundle)$/.test(n)||w('win|windows|win32|win64'))p='windows';
+else if(/\.(dmg|pkg)$/.test(n)||w('mac|macos|osx|darwin'))p='macos';
+else if(/\.(appimage|deb|rpm|snap|flatpak)$/.test(n)||/linux/.test(n))p='linux';
+const a=/arm64|aarch64|v8a/.test(n)?'ARM64':/armv7|armeabi|arm32|v7a/.test(n)?'ARM32':/x86_64|x64|amd64/.test(n)?'x64':/universal|fat/.test(n)?'Universale':/i386|i686|ia32|x86/.test(n)?'x86':'';return{p,a}}
+const fmt=n=>n>=1e6?(n/1e6).toFixed(1)+' M':n>=1e3?(n/1e3).toFixed(n>=1e4?0:1)+' k':String(n),sz=b=>b>1048576?(b/1048576).toFixed(1)+' MB':Math.max(1,Math.round(b/1024))+' KB',date=x=>new Date(x).toLocaleDateString('it-IT',{year:'numeric',month:'short',day:'numeric'});
+const slim=r=>({n:r.full_name,name:r.name,o:r.owner.login,a:r.owner.avatar_url,d:r.description,s:r.stargazers_count,f:r.forks_count,l:r.language,u:r.html_url,p:r.pushed_at||r.updated_at,t:r.topics||[],h:r.homepage,li:r.license&&r.license.spdx_id});
+const relSlim=x=>({tag_name:x.tag_name,published_at:x.published_at,body:(x.body||'').slice(0,1000),assets:(x.assets||[]).map(a=>({name:a.name,size:a.size,download_count:a.download_count,browser_download_url:a.browser_download_url}))});
+const bdg=(k,c)=>`<span class="pb${k==UP?' me':''}${c?'':' est'}" style="--c:${PL[k].c}">${c?'✓ ':''}${PL[k].e} ${PL[k].n}</span>`;
+const card=r=>`<article class="app" data-n="${esc(r.n)}"><img class="ic" loading="lazy" src="${esc(r.a)}&s=140" alt=""><div class="bd"><h3>${esc(r.name)}</h3><div class="mu">${esc(r.o)}</div><p class="ds">${esc(r.d||'Nessuna descrizione.')}</p><div class="bg">${detect(r).map(k=>bdg(k,0)).join('')}</div><div class="st"><span>★ ${fmt(r.s)}</span><span>⑂ ${fmt(r.f)}</span>${r.l?`<span>${esc(r.l)}</span>`:''}<span>${date(r.p)}</span></div></div></article>`;
+const tile=r=>`<div class="tile" data-n="${esc(r.n)}"><img class="ic" loading="lazy" src="${esc(r.a)}&s=190" alt=""><b>${esc(r.name)}</b><span class="mu">★ ${fmt(r.s)}</span></div>`;
+
+class RepoScout{
+ constructor(){this.pg=1;this.api='';this.busy=false;this.more=true;this.plat='';this.fa=0;this.tok='';this.map=new Map();
+  this.obs=new IntersectionObserver(e=>{if(e[0].isIntersecting&&!this.busy&&this.more&&this.api){this.pg++;this.load()}},{rootMargin:'400px'});
+  this.robs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){this.robs.unobserve(e.target);this.row(e.target)}}),{rootMargin:'200px'});
+  this.init()}
+ init(){
+  document.querySelectorAll('[data-i]').forEach(e=>e.innerHTML=svg(e.dataset.i));
+  this.theme(ST.get('th',matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  const y=new Date().getFullYear();for(let i=y;i>=2008;i--)$('#fy').add(new Option(i,i));
+  $('#chips').innerHTML=['',...Object.keys(PL).filter(k=>PL[k].t)].map(k=>`<button class="chip${k?'':' on'}" data-p="${k}">${k?PL[k].e+' '+PL[k].n:'✨ Tutte'}</button>`).join('');
+  $('#chips').onclick=e=>{const b=e.target.closest('[data-p]');if(b){this.setPlat(b.dataset.p);this.submit()}};
+  $('#thm').onclick=()=>this.theme(document.documentElement.dataset.t=='dark'?'light':'dark');
+  $('#tf').onclick=()=>$('#fw').classList.toggle('open');
+  $('#fc').onclick=()=>{['#fy','#fs','#ff'].forEach(s=>$(s).value='');$('#fg').checked=false};
+  $('#sf').onsubmit=e=>{e.preventDefault();this.submit()};
+  $('#cfg').onclick=()=>{$('#tk').value=ST.get('tk','');$('#dlg').showModal()};
+  $('#svt').onclick=()=>{ST.set('tk',$('#tk').value.trim());$('#dlg').close()};
+  $('#dx').onclick=()=>$('#dlg').close();
+  document.body.onclick=e=>{
+   if(e.target.closest('[data-x]'))return history.back();
+   const a=e.target.closest('[data-n]');if(a&&this.map.has(a.dataset.n))return this.open(this.map.get(a.dataset.n));
+   const v=e.target.closest('[data-all]');if(v){this.setPlat(v.dataset.all);this.submit()}};
+  onpopstate=()=>$('#sh').classList.contains('open')?this.hide():this.fromURL();
+  this.home();this.fromURL()}
+ theme(t){document.documentElement.dataset.t=t;$('#tc').content=t=='dark'?'#091014':'#f3f7f9';$('#thm').textContent=t=='dark'?'☀️':'🌙';ST.set('th',t)}
+ setPlat(k){this.plat=k;document.querySelectorAll('.chip[data-p]').forEach(c=>c.classList.toggle('on',c.dataset.p==k))}
+ async gh(p,ttl=0,map){const k='c:'+p;
+  if(ttl)try{const c=JSON.parse(sessionStorage.getItem(k));if(c&&Date.now()-c.t<ttl)return c.d}catch{}
+  const h={Accept:'application/vnd.github+json'},t=ST.get('tk','');if(t)h.Authorization='Bearer '+t;let r;
+  try{r=await fetch('https://api.github.com'+p,{headers:h})}catch{throw Error('Connessione assente o GitHub non raggiungibile.')}
+  if(!r.ok){if(r.status==403||r.status==429)throw Error('Limite di richieste GitHub raggiunto. Attendi un minuto oppure aggiungi un token nelle Impostazioni (⚙️).');if(r.status==422)throw Error('Ricerca non valida: controlla i filtri inseriti.');if(r.status==404)throw Error('404');throw Error('Errore di GitHub (codice '+r.status+').')}
+  let d=await r.json();if(map)d=map(d);
+  if(ttl)try{sessionStorage.setItem(k,JSON.stringify({t:Date.now(),d}))}catch{}
+  return d}
+ build(){let q=$('#q').value.trim(),a=0;const y=$('#fy').value,s=$('#fs').value,f=$('#ff').value;
+  if(this.plat)q+=' topic:'+PL[this.plat].t;
+  if(y){q+=` created:>=${y}-01-01`;a=1}if(s){q+=` stars:>=${s}`;a=1}if(f){q+=` forks:>=${f}`;a=1}if($('#fg').checked){q+=' good-first-issues:>0';a=1}
+  this.fa=a;return q.trim()}
+ url(){const u=new URLSearchParams(),v=(k,s)=>{const x=$(s).value.trim();if(x)u.set(k,x)};v('q','#q');v('year','#fy');v('stars','#fs');v('forks','#ff');if($('#fg').checked)u.set('contrib','true');if(this.plat)u.set('p',this.plat);
+  history.pushState(null,'',location.pathname+(u.toString()?'?'+u:''))}
+ fromURL(){const u=new URLSearchParams(location.search),p=u.get('p');$('#q').value=u.get('q')||'';$('#fy').value=u.get('year')||'';$('#fs').value=u.get('stars')||'';$('#ff').value=u.get('forks')||'';$('#fg').checked=u.get('contrib')=='true';this.setPlat(PL[p]&&PL[p].t?p:'');this.go()}
+ submit(){this.url();this.go()}
+ go(){const b=$('#q').value.trim(),q=this.build();$('#fw').classList.remove('open');
+  if(!q){$('#home').hidden=false;$('#out').hidden=true;return}
+  $('#home').hidden=true;$('#out').hidden=false;this.api=q;this.pg=1;this.more=true;this.obs.disconnect();$('#er').hidden=true;
+  $('#rt').textContent=b?'Risultati per: '+b:this.plat?'App per '+PL[this.plat].n:'Risultati filtrati';$('#rc').textContent='';$('#fb').hidden=!this.fa;
+  scrollTo(0,0);this.load()}
+ async load(){this.busy=true;const p=this.pg;
+  if(p==1)$('#res').innerHTML='<div class="sk" style="height:120px"></div>'.repeat(5);
+  try{this.show(await this.gh(`/search/repositories?q=${encodeURIComponent(this.api)}&sort=stars&order=desc&per_page=30&page=${p}`,300000,x=>({t:x.total_count,i:x.items.map(slim)})),p)}
+  catch(e){this.err(e.message,p);this.more=false}
+  finally{this.busy=false}}
+ err(m,p){const e=$('#er');e.textContent=m;e.hidden=false;if(p==1)$('#res').innerHTML='';$('#sent').hidden=true}
+ show(d,p){const g=$('#res');
+  if(p==1){g.innerHTML='';if(!d.i.length){this.err('Nessuna app trovata. Prova a togliere qualche filtro o a cambiare piattaforma.',1);this.more=false;return}
+   $('#rc').textContent=(d.t>1000?'Oltre 1.000':d.t.toLocaleString('it-IT'))+' risultati, ordinati per stelle'}
+  d.i.forEach(r=>this.map.set(r.n,r));g.insertAdjacentHTML('beforeend',d.i.map(card).join(''));
+  if(d.i.length<30||(p-1)*30+d.i.length>=Math.min(d.t,1000))this.more=false;
+  const s=$('#sent');s.hidden=!this.more;if(this.more){this.obs.unobserve(s);this.obs.observe(s)}}
+ home(){const rs=[...ROWS].sort((a,b)=>(b[0]==UP)-(a[0]==UP));
+  $('#home').innerHTML=`<div class="hero"><h2>Trova tool e programmi per ogni piattaforma</h2><p>Il catalogo open source di GitHub: ogni app mostra chiaramente dove funziona e quali file puoi scaricare.</p>${UP?`<span class="dev">${PL[UP].e} Il tuo dispositivo: ${PL[UP].n}</span>`:''}</div>`+
+  rs.map(([k,m])=>`<section data-r="${k}" data-m="${m}"><div class="rh"><h2>${PL[k].e} ${PL[k].n}</h2><button data-all="${k}">Vedi tutto</button></div><div class="sc">${'<div class="tile"><div class="sk ic"></div></div>'.repeat(5)}</div></section>`).join('');
+  document.querySelectorAll('[data-r]').forEach(s=>this.robs.observe(s))}
+ async row(el){const k=el.dataset.r,sc=el.querySelector('.sc');
+  try{const d=await this.gh(`/search/repositories?q=${encodeURIComponent(`topic:${PL[k].t} stars:>${el.dataset.m}`)}&sort=stars&order=desc&per_page=14`,1800000,x=>({t:x.total_count,i:x.items.map(slim)}));d.i.forEach(r=>this.map.set(r.n,r));sc.innerHTML=d.i.map(tile).join('')}
+  catch(e){sc.innerHTML=`<p class="mu">${esc(e.message)}</p>`}}
+ top(r){return`<div class="tb"><button data-x aria-label="Indietro">${svg('back',24)}</button><span class="ft">${esc(r.name)}</span></div>`}
+ async open(r){history.pushState({d:1},'');document.body.style.overflow='hidden';this.tok=r.n;const s=$('#sh');s.classList.add('open');s.scrollTop=0;
+  s.innerHTML=this.top(r)+'<div class="shi"><div class="sk" style="height:150px"></div></div>';
+  let rel=null,er='';
+  try{rel=await this.gh(`/repos/${r.n}/releases/latest`,900000,relSlim)}
+  catch(e){if(e.message=='404'){try{rel=(await this.gh(`/repos/${r.n}/releases?per_page=1`,900000,x=>x.map(relSlim)))[0]||null}catch(e2){er=e2.message}}else er=e.message}
+  if(this.tok==r.n)this.paint(r,rel,er)}
+ hide(){$('#sh').classList.remove('open');document.body.style.overflow=''}
+ paint(r,rel,er){
+  const ps=detect(r),as=((rel&&rel.assets)||[]).map(a=>({...a,c:cls(a.name)})).filter(a=>a.c),keys=Object.keys(PL);
+  const rk=a=>(a.c.p==UP?0:1)*100+keys.indexOf(a.c.p)*5+(UP=='android'&&a.c.p=='android'?({ARM64:0,Universale:0,'':1,ARM32:2}[a.c.a]??3):0);
+  as.sort((a,b)=>rk(a)-rk(b));
+  const ok=[...new Set(as.map(a=>a.c.p))],est=ps.filter(k=>!ok.includes(k)&&(!ok.length||(k!='other'&&k!='lib')));
+  const m=as.find(a=>a.c.p==UP),dl=a=>`href="${esc(a.browser_download_url)}" target="_blank" rel="noopener"`;
+  const main=m?`<a class="btn" ${dl(m)}>${svg('dl')} Scarica per ${PL[m.c.p].n}${m.c.a?' ('+m.c.a+')':''} · ${sz(m.size)}</a>`:as.length?`<button class="btn" onclick="document.getElementById('dl').scrollIntoView({behavior:'smooth'})">Vedi i download</button>`:`<a class="btn" href="${esc(r.u)}" target="_blank" rel="noopener">Apri su GitHub</a>`;
+  const cp=!UP?'':ok.includes(UP)?`<div class="note ok">✓ Ha un file pronto per il tuo dispositivo (${PL[UP].n})</div>`:ps.includes(UP)?`<div class="note">Dovrebbe funzionare su ${PL[UP].n}, ma nelle release non c'è un file dedicato.</div>`:`<div class="note no">Nessun file per ${PL[UP].n}.${ok.length?' Disponibile per: '+ok.map(k=>PL[k].n).join(', ')+'.':''}</div>`;
+  let last='';const list=as.map(a=>{const h=a.c.p!=last?(last=a.c.p,`<div class="gh">${bdg(a.c.p,1)}</div>`):'';
+   return h+`<div class="as${a.c.p==UP?' me':''}"><div class="nm">${esc(a.name)}<div class="mu">${[a.c.a,sz(a.size),fmt(a.download_count)+' download'].filter(Boolean).join(', ')}</div></div><a ${dl(a)} aria-label="Scarica ${esc(a.name)}">${svg('dl')}</a></div>`}).join('');
+  $('#sh').innerHTML=this.top(r)+`<div class="shi">
+<div class="hd"><img class="ic big" src="${esc(r.a)}&s=220" alt=""><div class="bd"><h1 class="ft">${esc(r.name)}</h1><div class="mu">${esc(r.o)}${r.li&&r.li!='NOASSERTION'?', licenza '+esc(r.li):''}</div></div></div>
+<div class="bg" style="margin:16px 0">${ok.map(k=>bdg(k,1)).join('')}${est.map(k=>bdg(k,0)).join('')}</div>
+<div class="cta">${main}<a class="btn s" href="${esc(r.u)}" target="_blank" rel="noopener">Repository</a></div>${cp}
+<div class="stats"><div><b>${fmt(r.s)}</b><span>Stelle</span></div><div><b>${fmt(r.f)}</b><span>Fork</span></div><div><b>${esc(r.l||'n/d')}</b><span>Linguaggio</span></div><div><b>${date(r.p)}</b><span>Ultimo push</span></div></div>
+<p>${esc(r.d||'Nessuna descrizione.')}</p>
+<h2 id="dl" class="ft">Download${rel?`<small>${esc(rel.tag_name)}, ${date(rel.published_at)}</small>`:''}</h2>
+${er?`<div class="note no">${esc(er)}</div>`:''}${list||'<div class="note">Nessun file pronto nelle release: probabilmente va compilato dal sorgente.</div>'}
+<p class="mu" style="margin-top:12px">Piattaforma con ✓: verificata dai file della release. Bordo tratteggiato: dedotta da argomenti e descrizione, non garantita.</p>
+${rel&&rel.body?`<h2 class="ft">Novità</h2><div class="rn">${esc(rel.body.slice(0,900))}${rel.body.length>900?'…':''}</div>`:''}
+${r.t.length?`<h2 class="ft">Argomenti</h2><div class="bg">${r.t.map(t=>`<span class="chip">${esc(t)}</span>`).join('')}</div>`:''}
+${/^https?:\/\//.test(r.h||'')?`<div class="cta" style="margin-top:20px"><a class="btn s" href="${esc(r.h)}" target="_blank" rel="noopener">Sito web</a></div>`:''}
+</div>`}
+}
+new RepoScout();
+</script>
+</body>
+</html>
